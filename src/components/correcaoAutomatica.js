@@ -9,26 +9,82 @@ class CorrecaoAutomatica extends Component {
             inputDescricao: '',
         }
     }
+
+    addUser = () => {
+        let re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+        if(this.state.inputNome.length < 3) {
+            alert("O nome é muito curto");
+        } else if (!re.test(String(this.state.inputEmail).toLowerCase()) ) {
+            alert("Email invalido");
+        } else if (this.state.inputDescricao.length < 3) {
+            alert("Adicione uma descrição");
+        } else {
+            
+        }
+    }
+
+    handleChanges = (id, value) => {
+        if(id === "nome"){
+            console.log("set nome")
+            this.setState({
+                inputNome: value,
+            })
+        }else if(id === "email"){
+            console.log("set setemail")
+            this.setState({
+                inputEmail: value,
+            })
+        }else {
+            console.log("set descricao")
+            this.setState({
+                inputDescricao: value,
+            })
+        }
+    }
+
     render() {
         return (
             <div>
                 <form>
                     <div className="form-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" className="form-control" id="nome" placeholder="Informe seu nome"/>
+                        <label>Nome</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="nome"
+                            placeholder="Informe seu nome"
+                            onChange={event => this.handleChanges(event.target.id, event.target.value)}
+                            />
                     </div>
 
                     <div className="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" className="form-control" id="email" placeholder="nome@exemplo.com"/>
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="email"
+                            placeholder="nome@exemplo.com"
+                            onChange={event => this.handleChanges(event.target.id, event.target.value)}
+                            />
                     </div>
 
                     <div className="form-group">
-                        <label for="descricao">Descrição</label>
-                        <textarea  className="form-control" id="descricao" rows="3"/>
+                        <label>Descrição</label>
+                        <textarea
+                            className="form-control"
+                            id="descricao"
+                            rows="3"
+                            onChange={event => this.handleChanges(event.target.id, event.target.value)}
+                            />
                         
                     </div>
-                    <button style={{float: 'right'}} type="submit" class="btn btn-primary">Enviar</button>
+                    <button
+                        style={{float: 'right'}}
+                        type="submit"
+                        className="btn btn-primary"
+                        onClick={this.addUser}
+                        >Enviar</button>
                 </form>
             </div>
         );
