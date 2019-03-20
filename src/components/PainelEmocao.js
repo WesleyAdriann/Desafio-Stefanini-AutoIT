@@ -1,9 +1,13 @@
-import React, { Components } from 'react';
+import React, { Component } from 'react';
 
-class PainelEmocao extends Components {
+class PainelEmocao extends Component {
     render () {
         return (
-            <div/>
+            <div>
+                Painel
+            </div>
         );
     }
 }
+
+export default PainelEmocao;

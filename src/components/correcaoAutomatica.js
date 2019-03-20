@@ -1,10 +1,13 @@
-import React, { Componets } from 'react';
+import React, { Component } from 'react';
 
-class CorrecaoAutomatica extends Componets {
+class CorrecaoAutomatica extends Component {
     render() {
         return (
-            <div/>
+            <div>
+                Correcao
+            </div>
         );
     }
 }
 
+export default CorrecaoAutomatica;
