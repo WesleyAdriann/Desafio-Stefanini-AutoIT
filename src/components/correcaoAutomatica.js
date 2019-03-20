@@ -10,7 +10,7 @@ class CorrecaoAutomatica extends Component {
         }
     }
 
-    addUser = e => {
+    speelCheck = e => {
         let re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
         if(this.state.inputNome.length < 3) {
@@ -21,7 +21,7 @@ class CorrecaoAutomatica extends Component {
             alert("Adicione uma descrição");
         } else {
             e.preventDefault();
-            this.props.addUser(this.state.inputNome, this.state.inputEmail, this.state.inputDescricao);
+            this.props.speelCheck(this.state.inputNome, this.state.inputEmail, this.state.inputDescricao);
         }
     }
 
@@ -84,7 +84,7 @@ class CorrecaoAutomatica extends Component {
                         style={{float: 'right'}}
                         type="submit"
                         className="btn btn-primary"
-                        onClick={e => this.addUser(e)}
+                        onClick={e => this.speelCheck(e)}
                         >Enviar</button>
                 </form>
             </div>
