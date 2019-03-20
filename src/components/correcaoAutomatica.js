@@ -27,17 +27,17 @@ class CorrecaoAutomatica extends Component {
 
     handleChanges = (id, value) => {
         if(id === "nome"){
-            console.log("set nome")
+            
             this.setState({
                 inputNome: value,
             })
         }else if(id === "email"){
-            console.log("set setemail")
+            
             this.setState({
                 inputEmail: value,
             })
         }else {
-            console.log("set descricao")
+            
             this.setState({
                 inputDescricao: value,
             })
@@ -85,7 +85,7 @@ class CorrecaoAutomatica extends Component {
                         type="submit"
                         className="btn btn-primary"
                         onClick={e => this.spellCheck(e)}
-                        >Enviar</button>
+                        >Salvar</button>
                 </form>
             </div>
         );

@@ -17,15 +17,13 @@ class App extends Component {
     super(props);
     this.state = {
       returnSpellCheck : '',
-      data: [
-
-      ]
+      data: []
     }
     this.spellCheck = this.spellCheck.bind(this);
     this.addUser = this.addUser.bind(this);
 
     this.app = firebase.initializeApp(DB_config);
-    this.db = this.app.database().ref().child('data');
+    this.db = this.app.database().ref().child('data')
 
   }
 
@@ -37,7 +35,8 @@ class App extends Component {
         userEmail: snap.val().userEmail,
         userDescricao : snap.val().userDescricao,
       })
-    })
+      this.setState({data});
+    });
   }
 
   async spellCheck  (nome, email, descricao)  {
@@ -92,9 +91,21 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+          <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul className="navbar-nav ">
+              <li className="nav-item">
+                <Link to="/" className="nav-link">Correcao Texto</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/painel" className="nav-link">Painel</Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
       <div  className="container">
-        <Route path="/" exact component={() => <CorrecaoAutomatica spellCheck={this.spellCheck}/>} />
-        <Route path="/painel" component={() => <PainelEmocao/>} />
+          <Route path="/" exact component={() => <CorrecaoAutomatica spellCheck={this.spellCheck}/>} />
+          <Route path="/painel" component={() => <PainelEmocao data={this.state.data}/>} />
       </div>
       </BrowserRouter>
     );
