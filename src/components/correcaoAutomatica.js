@@ -1,6 +1,6 @@
 import React, { Componets } from 'react';
 
-class correcaoAutomatica extends Componets {
+class CorrecaoAutomatica extends Componets {
     render() {
         return (
             <div/>
