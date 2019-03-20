@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 
 class CorrecaoAutomatica extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputNome: '',
+            inputEmail: '',
+            inputDescricao: '',
+        }
+    }
     render() {
         return (
             <div>
                 <form>
                     <div className="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" className="form-control" id="name" placeholder="Informe seu nome"/>
+                        <label for="nome">Nome</label>
+                        <input type="text" className="form-control" id="nome" placeholder="Informe seu nome"/>
                     </div>
 
                     <div className="form-group">
@@ -16,10 +24,11 @@ class CorrecaoAutomatica extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label for="description">Descrição</label>
-                        <textarea  className="form-control" id="description" rows="3"/>
+                        <label for="descricao">Descrição</label>
+                        <textarea  className="form-control" id="descricao" rows="3"/>
                         
                     </div>
+                    <button style={{float: 'right'}} type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>
         );
