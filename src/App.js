@@ -21,15 +21,26 @@ class App extends Component {
 
       ]
     }
-    this.speelCheck = this.speelCheck.bind(this);
+    this.spellCheck = this.spellCheck.bind(this);
+    this.addUser = this.addUser.bind(this);
 
     this.app = firebase.initializeApp(DB_config);
     this.db = this.app.database().ref().child('data');
 
   }
 
+  componentDidMount = () => {
+    const { data } = this.state;
+    this.db.on('child_added', snap => {
+      data.push({
+        userNome: snap.val().userNome,
+        userEmail: snap.val().userEmail,
+        userDescricao : snap.val().userDescricao,
+      })
+    })
+  }
 
-  async speelCheck  (nome, email, descricao)  {
+  async spellCheck  (nome, email, descricao)  {
     const key = '44696f4e806a4b7ab09d1519fc5e4e48';
    
     const response = await axios({
@@ -60,14 +71,29 @@ class App extends Component {
       let oldStr = this.state.returnSpellCheck[i].token;
       descricao = descricao.replace(oldStr, newStr);      
     }
+
+    this.addUser(nome, email, descricao);
   }
  
+  addUser = (nome, email, descricao) => {
+    this.db.push().set({
+      userNome: nome,
+      userEmail: email,
+      userDescricao : descricao,
+    }, err => {
+      if(err) {
+        alert("Não foi possivel adicionar.")
+      }else {
+        alert("Adicionado com sucesso");
+      }
+    });
+  }
 
   render() {
     return (
       <BrowserRouter>
       <div  className="container">
-        <Route path="/" exact component={() => <CorrecaoAutomatica speelCheck={this.speelCheck}/>} />
+        <Route path="/" exact component={() => <CorrecaoAutomatica spellCheck={this.spellCheck}/>} />
         <Route path="/painel" component={() => <PainelEmocao/>} />
       </div>
       </BrowserRouter>
