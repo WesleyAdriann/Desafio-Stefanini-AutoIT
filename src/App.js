@@ -104,8 +104,10 @@ class App extends Component {
           </div>
         </nav>
       <div  className="container">
-          <Route path="/" exact component={() => <CorrecaoAutomatica spellCheck={this.spellCheck}/>} />
-          <Route path="/painel" component={() => <PainelEmocao data={this.state.data}/>} />
+        <div className="col">
+            <Route path="/" exact component={() => <CorrecaoAutomatica spellCheck={this.spellCheck}/>} />
+            <Route path="/painel" component={() => <PainelEmocao data={this.state.data}/>} />
+          </div>
       </div>
       </BrowserRouter>
     );

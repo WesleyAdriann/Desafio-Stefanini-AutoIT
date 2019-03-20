@@ -7,11 +7,18 @@ class PainelEmocao extends Component {
     }
     render () {
         return (
-            <div>
+            <div className="row">
                 {this.data.map(info => {
                     return (
-                        <div>
-                            {info.userNome}
+                        <div className="col-md-3" key={info.userNome}>
+                            <div className="card mt-3">
+                                <div className="card-title text-center">
+                                    {info.userNome}
+                                </div>
+                                <div className="card-body">
+                                    {info.userDescricao}
+                                </div>
+                            </div>
                         </div>
                     )
                 })}
