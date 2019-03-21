@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import AnaliseTexto from './AnaliseTexto';
 
 class PainelEmocao extends Component {
     constructor(props) {
@@ -67,7 +68,7 @@ class PainelEmocao extends Component {
         })
         responseSentimento = responseSentimento.data.documents[0].score;
         
-        const completeInfos = [responseIdioma, responseFrases, responseSentimento];
+        const completeInfos = {responseIdioma, responseFrases, responseSentimento};
         console.log(completeInfos);
         return (completeInfos);
             
@@ -75,15 +76,14 @@ class PainelEmocao extends Component {
 
 
 
-    render () {
-        
+    render () {   
         return (
             <div className="row">
                 {
                     this.data.map(info => { 
                         let newInfos = this.handleDescricao(info.userDescricao);
-                        sleep(2000);
-                        console.log(newInfos);
+                        
+                        
                         return (
                             <div className="col-md-3" key={info.userNome}>
                             
@@ -98,7 +98,7 @@ class PainelEmocao extends Component {
                                         {info.userEmail}<br/>
                                         Descrição <br/>
                                         {info.userDescricao} <br/>
-                                        {newInfos[0]}
+                                        <AnaliseTexto info={newInfos}/>
                                     </div>
                                 </div>
                             </div>
