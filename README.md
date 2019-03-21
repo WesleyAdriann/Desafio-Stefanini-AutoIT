@@ -28,7 +28,7 @@ npm start
 ```
 Pronto!
 
-Para verificação do codigo ver arquivos:
+## Para verificação do codigo ver arquivos:
 ```
 ./src/App.js
 ./src/Components/AnaliseTexto.js
