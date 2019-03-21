@@ -53,14 +53,7 @@ class App extends Component {
         'Ocp-Apim-Subscription-Key' : key,
       },
     });
-    //   .then(response => {
-    //     this.setState({
-    //       returnSpellCheck : response.data.flaggedTokens,
-    //     })
-    //     console.log("ok spell check");
-        
-    // });
-    
+      
     await this.setState ({
       returnSpellCheck : response.data.flaggedTokens,
     })
@@ -95,10 +88,10 @@ class App extends Component {
           <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul className="navbar-nav ">
               <li className="nav-item">
-                <Link to="/" className="nav-link">Correcao Texto</Link>
+                <Link to="/" className="nav-link">Desafio I - Correcao Texto</Link>
               </li>
               <li className="nav-item">
-                <Link to="/painel" className="nav-link">Painel</Link>
+                <Link to="/painel" className="nav-link">Desafio II - Painel</Link>
               </li>
             </ul>
           </div>
