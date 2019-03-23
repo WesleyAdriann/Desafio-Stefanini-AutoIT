@@ -21,7 +21,7 @@ class AnaliseTexto extends Component {
     }
 
     handleLingua = descricao => {
-        const key = "b7857a3c744e4b589098202a253ec8f5";
+        const key = "key do text analytic bing";
         axios({
             method: 'post',
             url: 'https://brazilsouth.api.cognitive.microsoft.com/text/analytics/v2.0/languages',
@@ -47,7 +47,7 @@ class AnaliseTexto extends Component {
     }
 
     handleSentimento = descricao => {
-        const key = "b7857a3c744e4b589098202a253ec8f5";
+        const key = "key do text analytic bing";
         axios({
             method: 'post',
             url: 'https://brazilsouth.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment',
@@ -73,7 +73,7 @@ class AnaliseTexto extends Component {
     }
 
     handlePalavras = descricao => {
-        const key = "b7857a3c744e4b589098202a253ec8f5";
+        const key = "key do text analytic bing";
         axios({
             method: 'post',
             url: 'https://brazilsouth.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases',

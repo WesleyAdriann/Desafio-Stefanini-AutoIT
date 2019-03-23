@@ -39,7 +39,7 @@ class App extends Component {
   }
 
   async spellCheck  (nome, email, descricao)  {
-    const key = '44696f4e806a4b7ab09d1519fc5e4e48';
+    const key = 'key do speel check bing';
    
     const response = await axios({
       method: 'get',
